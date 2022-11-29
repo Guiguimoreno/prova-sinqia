@@ -1,24 +1,29 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Timeout;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pageObject.PageProva;
 
-import java.text.BreakIterator;
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
+
+
 
 public class TesteProva {
 
+
+
         @Test
         public void TestAbrirLink() throws InterruptedException {
+
+            PageProva Pagina = new PageProva();
+
+
             WebDriverManager.chromedriver().setup();
             WebDriver driver = new ChromeDriver();
             driver.manage().window().maximize();
@@ -28,7 +33,7 @@ public class TesteProva {
 
 
 
-            WebElement element = driver.findElement(By.id("switch-version-select"));
+            WebElement element = driver.findElement(B);
             Select combo = new Select(element);
             combo.selectByVisibleText("Bootstrap V4 Theme");
 
