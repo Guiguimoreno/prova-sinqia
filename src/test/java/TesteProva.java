@@ -8,7 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import pageObject.PageProva;
+import pageObject.PageTelaInicial;
 
 import java.time.Duration;
 
@@ -19,9 +19,9 @@ public class TesteProva {
 
 
         @Test
-        public void TestAbrirLink() throws InterruptedException {
+        public void TestAbrirLink(){
 
-            PageProva Pagina = new PageProva();
+            PageTelaInicial Pagina = new PageTelaInicial();
 
 
             WebDriverManager.chromedriver().setup();
@@ -32,10 +32,12 @@ public class TesteProva {
 
 
 
+            Pagina.SelecionarCombo();
 
-            WebElement element = driver.findElement(B);
-            Select combo = new Select(element);
-            combo.selectByVisibleText("Bootstrap V4 Theme");
+
+            //WebElement element = driver.findElement(By.id("switch-version-select"));
+            //Select combo = new Select(element);
+            //combo.selectByVisibleText("Bootstrap V4 Theme");
 
 
 
