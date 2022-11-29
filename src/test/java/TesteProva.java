@@ -21,7 +21,7 @@ public class TesteProva {
         @Test
         public void TestAbrirLink() throws InterruptedException {
 
-            PageProva Pagina = new PageProva();
+            PageProva page = new PageProva();
 
 
             WebDriverManager.chromedriver().setup();
@@ -33,7 +33,7 @@ public class TesteProva {
 
 
 
-            WebElement element = driver.findElement(B);
+            WebElement element = driver.findElement();
             Select combo = new Select(element);
             combo.selectByVisibleText("Bootstrap V4 Theme");
 

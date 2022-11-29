@@ -8,7 +8,9 @@ public class PageProva {
 
         protected WebDriver driver;
 
-        private By Combo = By.id("switch-version-select");
+        public void combo(){
+
+              By Combo = By.id("switch-version-select");
 
 
 
