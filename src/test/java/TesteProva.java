@@ -21,7 +21,10 @@ public class TesteProva {
         @Test
         public void TestAbrirLink(){
 
+
             PageTelaInicial Pagina = new PageTelaInicial();
+            
+
 
 
             WebDriverManager.chromedriver().setup();
@@ -38,6 +41,10 @@ public class TesteProva {
             //WebElement element = driver.findElement(By.id("switch-version-select"));
             //Select combo = new Select(element);
             //combo.selectByVisibleText("Bootstrap V4 Theme");
+
+            WebElement element = driver.findElement();
+            Select combo = new Select(element);
+            combo.selectByVisibleText("Bootstrap V4 Theme");
 
 
 
