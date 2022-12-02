@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObject.PageTelaInicial;
 
+import java.sql.Driver;
 import java.time.Duration;
 
 
@@ -19,10 +20,11 @@ public class TesteProva {
 
 
         @Test
-        public void TestAbrirLink(){
+        public void TestAbrirLink() throws InterruptedException {
 
 
-            PageTelaInicial Pagina = new PageTelaInicial();
+
+
             
 
 
@@ -33,18 +35,20 @@ public class TesteProva {
             driver.get("https://www.grocerycrud.com/v1.x/demo/bootstrap_theme");
             WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
 
-
+            PageTelaInicial Pagina = new PageTelaInicial(driver);
 
             Pagina.SelecionarCombo();
+
+
 
 
             //WebElement element = driver.findElement(By.id("switch-version-select"));
             //Select combo = new Select(element);
             //combo.selectByVisibleText("Bootstrap V4 Theme");
 
-            WebElement element = driver.findElement();
+            /*WebElement element = driver.findElement();
             Select combo = new Select(element);
-            combo.selectByVisibleText("Bootstrap V4 Theme");
+            combo.selectByVisibleText("Bootstrap V4 Theme"); */
 
 
 
