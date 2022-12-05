@@ -24,6 +24,13 @@ public class PageTelaInicial {
 
 
         }
+        By AdicionarUsuario = By.className("btn-default");
 
 
+        public void AdicionarUsuario(){
+
+                driver.findElement(By.className("btn-default")).click();
+
+
+        }
 }

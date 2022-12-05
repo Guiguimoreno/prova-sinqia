@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObject.PageTelaInicial;
+import pageObject.loginPage;
 
 import java.sql.Driver;
 import java.time.Duration;
@@ -35,46 +36,34 @@ public class TesteProva {
             driver.get("https://www.grocerycrud.com/v1.x/demo/bootstrap_theme");
             WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
 
-            PageTelaInicial Pagina = new PageTelaInicial(driver);
-
-            Pagina.SelecionarCombo();
+            PageTelaInicial Home = new PageTelaInicial(driver);
 
 
+            Home.SelecionarCombo();
+            Home.AdicionarUsuario();
 
+            loginPage Login = new loginPage(driver);
 
-            //WebElement element = driver.findElement(By.id("switch-version-select"));
-            //Select combo = new Select(element);
-            //combo.selectByVisibleText("Bootstrap V4 Theme");
+            Login.Name();
+            Login.LastName();
+            Login.ContactFirstName();
+            Login.Phone();
+            Login.Address1();
+            Login.Address2();
+            Login.City();
+            Login.State();
+            Login.PostalCode();
+            Login.Country();
+            Login.Credit();
 
-            /*WebElement element = driver.findElement();
-            Select combo = new Select(element);
-            combo.selectByVisibleText("Bootstrap V4 Theme"); */
+            Login.Lista();
 
-
-
-            driver.findElement(By.className("btn-default")).click();
-            driver.findElement(By.id("field-customerName")).sendKeys("Teste Sinqia");
-            driver.findElement(By.id("field-contactLastName")).sendKeys("Teste");
-            driver.findElement(By.id("field-contactFirstName")).sendKeys("Moreno");
-            driver.findElement(By.id("field-phone")).sendKeys("51 99999-9999");
-            driver.findElement(By.id("field-addressLine1")).sendKeys("Av Sinqia, 1995");
-            driver.findElement(By.id("field-addressLine2")).sendKeys("Torre D");
-            driver.findElement(By.id("field-city")).sendKeys("Porto Alegre");
-            driver.findElement(By.id("field-state")).sendKeys("RS");
-            driver.findElement(By.id("field-postalCode")).sendKeys("91000-000");
-            driver.findElement(By.id("field-country")).sendKeys("Brasil");
-            driver.findElement(By.id("field-creditLimit")).sendKeys("200");
-            WebElement Lista = driver.findElement(By.id("field_salesRepEmployeeNumber_chosen"));
-            Lista.click();
-            driver.findElement(By.xpath("//*[@id=\"field_salesRepEmployeeNumber_chosen\"]/div/ul/li[8]")).click();
-            driver.findElement(By.id("form-button-save")).click();
-
-
-
+            Login.SaveButton();
 
             wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"report-success\"]/p")));
-            String actualString = driver.findElement(By.xpath("//*[@id=\"report-success\"]/p")).getText();
-            Assertions.assertTrue(actualString.contains("Your data has been successfully stored into the database. Edit Customer or Go back to list"));
+            Login.SucessReport();
+
+            Assertions.assertTrue(Boolean.parseBoolean("Your data has been successfully stored into the database. Edit Customer or Go back to list")));
             driver.findElement(By.xpath("//*[@id=\"report-success\"]/p/a[2]")).click();
 
 
