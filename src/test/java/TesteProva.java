@@ -61,9 +61,8 @@ public class TesteProva {
             Login.SaveButton();
 
             wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"report-success\"]/p")));
-            Login.SucessReport();
-
-            Assertions.assertTrue(Boolean.parseBoolean("Your data has been successfully stored into the database. Edit Customer or Go back to list")));
+            String actualString = driver.findElement(By.xpath("//*[@id=\"report-success\"]/p")).getText();
+            Assertions.assertTrue(actualString.contains("Your data has been successfully stored into the database. Edit Customer or Go back to list"));
             driver.findElement(By.xpath("//*[@id=\"report-success\"]/p/a[2]")).click();
 
 

@@ -79,11 +79,6 @@ public void Name(){
    }
 
 
-   public void SucessReport(){
-       String actualString = driver.findElement(By.xpath("//*[@id=\"report-success\"]/p")).getText();
-
-   }
-
 
 
 
