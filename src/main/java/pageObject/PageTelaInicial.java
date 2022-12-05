@@ -17,8 +17,8 @@ public class PageTelaInicial {
 
         public void SelecionarCombo(){
 
-                By comboBoxElement = (By) driver.findElement(By.id("switch-version-select"));
-                Select combo = new Select((WebElement) comboBoxElement);
+                WebElement element = driver.findElement(By.id("switch-version-select"));
+                Select combo = new Select(element);
                 combo.selectByVisibleText("Bootstrap V4 Theme");
 
 
