@@ -31,14 +31,15 @@ public class PageTelaInicial {
         By BotaoDelete2 = By.className("delete-multiple-confirmation-button");
         By DeletePopUp = By.className("alert-delete-multiple-one");
         public void CheckBox(){
-                driver.findElement(By.className("select-all-none")).click();
+                driver.findElement(CheckBox).click();
         }
         public void BotaoDelete(){
-                driver.findElement(By.className("delete-selected-button")).click();
+                driver.findElement(BotaoDelete).click();
         }
         public void BotaoDelete2(){
-                driver.findElement(By.className("delete-multiple-confirmation-button")).click();
+                driver.findElement(BotaoDelete2).click();
         }
+
 
 
 

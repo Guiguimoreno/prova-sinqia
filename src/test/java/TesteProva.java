@@ -3,17 +3,14 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObject.PageTelaInicial;
 import pageObject.loginPage;
-
-import java.sql.Driver;
 import java.time.Duration;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 public class TesteProva {
@@ -36,25 +33,25 @@ public class TesteProva {
             Home.SelecionarCombo();
             Home.AdicionarUsuario();
 
-            loginPage Login = new loginPage(driver);
-            Login.Name();
-            Login.LastName();
-            Login.ContactFirstName();
-            Login.Phone();
-            Login.Address1();
-            Login.Address2();
-            Login.City();
-            Login.State();
-            Login.PostalCode();
-            Login.Country();
-            Login.Credit();
+            loginPage Login  = new loginPage(driver);
+            Login.preencherName("Teste Sinqia");
+            Login.preencherLastName("Teste");
+            Login.preencherContactFirstName("Moreno");
+            Login.preencherPhone("51 99999-9999");
+            Login.preencherAddress1("Av Sinqia, 1995");
+            Login.preencherAddress2();
+            Login.preencherCity();
+            Login.preencherState();
+            Login.preencherPostalCode();
+            Login.preencherCountry();
+            Login.preencherCredit();
             Login.Lista();
 
-            Login.SaveButton();
+            Login.ClicarSaveButton();
 
-            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"report-success\"]/p")));
+
             String actualString = driver.findElement(By.xpath("//*[@id=\"report-success\"]/p")).getText();
-            Assertions.assertTrue(actualString.contains("Your data has been successfully stored into the database. Edit Customer or Go back to list"));
+            assertTrue(actualString.contains("Your data has been successfully stored into the database. Edit Customer or Go back to list"));
             driver.findElement(By.xpath("//*[@id=\"report-success\"]/p/a[2]")).click();
 
             Home.Botao();
@@ -73,7 +70,7 @@ public class TesteProva {
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("alert-delete-multiple-one")));
 
             String popUP = driver.findElement(By.className("alert-delete-multiple-one")).getText();
-            Assertions.assertTrue(popUP.contains("Are you sure that you want to delete this 1 item?"));
+            assertTrue(popUP.contains("Are you sure that you want to delete this 1 item?"));
 
 
 
@@ -84,7 +81,7 @@ public class TesteProva {
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("alert-success")));
 
             String greenBoX = driver.findElement(By.className("alert-success")).getText();
-            Assertions.assertTrue(greenBoX.contains("Your data has been successfully deleted from the database."));
+            assertTrue(greenBoX.contains("Your data has been successfully deleted from the database."));
 
             driver.quit();
 
