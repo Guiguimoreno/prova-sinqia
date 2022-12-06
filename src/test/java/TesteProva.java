@@ -24,12 +24,6 @@ public class TesteProva {
         public void TestAbrirLink() throws InterruptedException {
 
 
-
-
-            
-
-
-
             WebDriverManager.chromedriver().setup();
             WebDriver driver = new ChromeDriver();
             driver.manage().window().maximize();
@@ -43,7 +37,6 @@ public class TesteProva {
             Home.AdicionarUsuario();
 
             loginPage Login = new loginPage(driver);
-
             Login.Name();
             Login.LastName();
             Login.ContactFirstName();
@@ -55,7 +48,6 @@ public class TesteProva {
             Login.PostalCode();
             Login.Country();
             Login.Credit();
-
             Login.Lista();
 
             Login.SaveButton();
@@ -65,19 +57,17 @@ public class TesteProva {
             Assertions.assertTrue(actualString.contains("Your data has been successfully stored into the database. Edit Customer or Go back to list"));
             driver.findElement(By.xpath("//*[@id=\"report-success\"]/p/a[2]")).click();
 
+            Home.Botao();
 
-            WebElement Box = driver.findElement(By.className("form-control"));
-            Box.click();
-            Box.sendKeys("Teste Sinqia");
 
             wait.until(ExpectedConditions.elementToBeClickable(By.className("select-all-none")));
 
-            driver.findElement(By.className("select-all-none")).click();
+            Home.CheckBox();
 
             Thread.sleep(1500);
 
-            driver.findElement(By.className("select-all-none")).click();
-            driver.findElement(By.className("delete-selected-button")).click();
+            Home.CheckBox();
+            Home.BotaoDelete();
 
 
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("alert-delete-multiple-one")));
@@ -87,10 +77,8 @@ public class TesteProva {
 
 
 
-            driver.findElement(By.className("delete-multiple-confirmation-button")).click();
+            Home.BotaoDelete2();
 
-
-            //System.out.println(driver.getPageSource());
 
 
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("alert-success")));
