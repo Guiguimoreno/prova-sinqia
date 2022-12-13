@@ -39,12 +39,14 @@ public class TesteProva {
             Login.preencherContactFirstName("Moreno");
             Login.preencherPhone("51 99999-9999");
             Login.preencherAddress1("Av Sinqia, 1995");
-            Login.preencherAddress2();
-            Login.preencherCity();
-            Login.preencherState();
-            Login.preencherPostalCode();
-            Login.preencherCountry();
-            Login.preencherCredit();
+            Login.preencherAddress2("Torre D");
+            Login.preencherCity("Porto Alegre");
+            Login.preencherState("RS");
+            Login.preencherPostalCode("91000-000");
+            Login.preencherCountry("Brasil");
+            Login.preencherCredit("200");
+
+
             Login.Lista();
 
             Login.ClicarSaveButton();

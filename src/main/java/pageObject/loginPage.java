@@ -1,6 +1,7 @@
 package pageObject;
 
-import org.asynchttpclient.util.Assertions;
+import dev.failsafe.internal.util.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,7 +19,9 @@ public class loginPage {
     public loginPage(WebDriver driver) {
         this.driver = driver;
 
+        wait = new WebDriverWait(this.driver, Duration.ofSeconds(10));
     }
+
 
     By Name = By.id("field-customerName");
     By LastName = By.id("field-contactLastName");
@@ -33,7 +36,7 @@ public class loginPage {
     By Credit = By.id("field-creditLimit");
     By SaveButton = By.id("form-button-save");
     By mensagemEsperada = By.xpath("//*[@id=\"report-success\"]/p");
-    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
 
 
     public void preencherName(String name) {
@@ -57,28 +60,28 @@ public class loginPage {
         driver.findElement(Address1).sendKeys(address);
     }
 
-    public void preencherAddress2() {
-        driver.findElement(Address2).sendKeys("Torre D");
+    public void preencherAddress2(String address2) {
+        driver.findElement(Address2).sendKeys(address2);
     }
 
-    public void preencherCity() {
-        driver.findElement(City).sendKeys("Porto Alegre");
+    public void preencherCity(String city) {
+        driver.findElement(City).sendKeys(city);
     }
 
-    public void preencherState() {
-        driver.findElement(State).sendKeys("RS");
+    public void preencherState(String state) {
+        driver.findElement(State).sendKeys(state);
     }
 
-    public void preencherPostalCode() {
-        driver.findElement(PostalCode).sendKeys("91000-000");
+    public void preencherPostalCode(String post) {
+        driver.findElement(PostalCode).sendKeys(post);
     }
 
-    public void preencherCountry() {
-        driver.findElement(Country).sendKeys("Brasil");
+    public void preencherCountry(String country) {
+        driver.findElement(Country).sendKeys(country);
     }
 
-    public void preencherCredit() {
-        driver.findElement(Credit).sendKeys("200");
+    public void preencherCredit(String credit) {
+        driver.findElement(Credit).sendKeys(credit);
     }
 
 
@@ -89,11 +92,15 @@ public class loginPage {
         driver.findElement(By.xpath("//*[@id=\"field_salesRepEmployeeNumber_chosen\"]/div/ul/li[8]")).click();
 
     }
+    WebDriverWait wait;
+
 
     public void ClicarSaveButton() {
         driver.findElement(By.id("form-button-save")).click();
         wait.until(ExpectedConditions.elementToBeClickable(mensagemEsperada));
     }
+
+    
 
     public void SaveButton(){
         driver.findElement(By.id("form-button-save")).click();
