@@ -100,13 +100,5 @@ public class loginPage {
         wait.until(ExpectedConditions.elementToBeClickable(mensagemEsperada));
     }
 
-    
-
-    public void SaveButton(){
-        driver.findElement(By.id("form-button-save")).click();
-        wait.until(ExpectedConditions.elementToBeClickable(mensagemEsperada));
-    }
-
-
 
 }

@@ -1,14 +1,9 @@
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObject.PageTelaInicial;
 import pageObject.loginPage;
-import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -20,12 +15,17 @@ public class TesteProva {
         @Test
         public void TestAbrirLink() throws InterruptedException {
 
-
-            WebDriverManager.chromedriver().setup();
             WebDriver driver = new ChromeDriver();
+
+
+            driverNavegador Nav = new driverNavegador(driver);
+             /*WebDriverManager.chromedriver().setup();
             driver.manage().window().maximize();
-            driver.get("https://www.grocerycrud.com/v1.x/demo/bootstrap_theme");
-            WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
+            driver.get("https://www.grocerycrud.com/v1.x/demo/bootstrap_theme"); */
+
+
+
+
 
             PageTelaInicial Home = new PageTelaInicial(driver);
 
@@ -59,7 +59,6 @@ public class TesteProva {
             Home.Botao();
 
 
-            wait.until(ExpectedConditions.elementToBeClickable(By.className("select-all-none")));
 
             Home.CheckBox();
 
@@ -69,7 +68,7 @@ public class TesteProva {
             Home.BotaoDelete();
 
 
-            wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("alert-delete-multiple-one")));
+
 
             String popUP = driver.findElement(By.className("alert-delete-multiple-one")).getText();
             assertTrue(popUP.contains("Are you sure that you want to delete this 1 item?"));
@@ -80,7 +79,7 @@ public class TesteProva {
 
 
 
-            wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("alert-success")));
+
 
             String greenBoX = driver.findElement(By.className("alert-success")).getText();
             assertTrue(greenBoX.contains("Your data has been successfully deleted from the database."));
