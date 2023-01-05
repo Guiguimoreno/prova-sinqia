@@ -10,18 +10,25 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TesteProva {
 
-
+loginPage LoginPage;
 
         @Test
         public void TestAbrirLink() throws InterruptedException {
 
+
+
             WebDriver driver = new ChromeDriver();
 
 
-            driverNavegador Nav = new driverNavegador(driver);
-             /*WebDriverManager.chromedriver().setup();
-            driver.manage().window().maximize();
-            driver.get("https://www.grocerycrud.com/v1.x/demo/bootstrap_theme"); */
+
+
+            //driverNavegador Nav = new driverNavegador(driver);
+
+
+
+
+
+            driver.get("https://www.grocerycrud.com/v1.x/demo/bootstrap_theme");
 
 
 
@@ -29,7 +36,7 @@ public class TesteProva {
 
             PageTelaInicial Home = new PageTelaInicial(driver);
 
-
+             Thread.sleep(6000);
             Home.SelecionarCombo();
             Home.AdicionarUsuario();
 
@@ -84,7 +91,6 @@ public class TesteProva {
             String greenBoX = driver.findElement(By.className("alert-success")).getText();
             assertTrue(greenBoX.contains("Your data has been successfully deleted from the database."));
 
-            driver.quit();
 
             /* <div data-growl="container" class="alert alert-success growl-animated animated bounceInDown" role="alert" data-growl-position="top-right" style="position: fixed; margin: 0px; z-index: 1031; display: inline-block; top: 20px; right: 20px;">…</div> */
 

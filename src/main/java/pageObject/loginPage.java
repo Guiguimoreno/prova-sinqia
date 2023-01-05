@@ -14,7 +14,7 @@ import java.time.Duration;
 public class loginPage {
 
 
-    protected WebDriver driver;
+    public WebDriver driver;
 
     public loginPage(WebDriver driver) {
         this.driver = driver;
